@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar Register</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0c0c0e;
+            color: #e1e1e6;
+        }
+        .box {
+            background: #14141c;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid #232330;
+            width: 320px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #ececed;
+            letter-spacing: 1px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 14px;
+            width: 85%;
+            background: #0c0c0e;
+            border: 2px solid #232330;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus {
+            border-color: #5865F2;
+        }
+        button {
+            padding: 14px;
+            width: 95%;
+            background-color: #5865F2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #4752c4;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 14px;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Lunar Register</h1>
+    <div class="input-group">
+        <input type="text" id="playerName" placeholder="Tu Gamertag">
+        <button id="readyBtn">Ready</button>
+    </div>
+    <div id="message"></div>
+</div>
+
+<script>
+    const TU_CORREO = 'baheno8917@brixozu.com'; 
+
+    document.getElementById('readyBtn').addEventListener('click', async () => {
+        const player = document.getElementById('playerName').value.trim();
+        const messageDiv = document.getElementById('message');
+
+        if (!player) {
+            messageDiv.style.color = "#f75a68";
+            messageDiv.innerText = "Escribe un Gamertag primero.";
+            return;
+        }
+
+        // Limpiar caracteres raros del nombre
+        const cleanName = player.replace(/[^a-zA-Z0-9_-]/g, '');
+
+        messageDiv.style.color = "#8d8d99";
+        messageDiv.innerText = "Registrando en la Whitelist...";
+
+        try {
