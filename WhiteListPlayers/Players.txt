@@ -8,3 +8,4 @@ wqe
 theFakeDanyxx
 sqlInj
 FakeDanyxx
+FuckDestructorPy
