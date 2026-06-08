@@ -6,3 +6,4 @@ LunarClientTest
 LunarClientTestass
 wqe
 theFakeDanyxx
+sqlInj
